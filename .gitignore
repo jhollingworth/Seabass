@@ -1,0 +1,4 @@
+.idea
+pkg
+albacore-deployment.gemspec
+*.gem
