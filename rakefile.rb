@@ -12,6 +12,18 @@ namespace :specs do
   end
 end
 
+namespace :example do
+  require 'rubygems'
+  require File.dirname(__FILE__) + '/lib/albacore/deployment'
+
+  robocopy do |r|
+      r.files << "foo.txt"
+      r.files << "bar.txt"
+      r.directories << "baz"
+      r.destination = "foo"
+  end
+end
+
 namespace :jeweler do
   begin
     require 'jeweler'

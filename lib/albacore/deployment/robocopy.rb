@@ -1,12 +1,18 @@
+require 'albacore/support/albacore_helper'
 
 class Robocopy
-  attr_accessor :files, :directories, :destination
+  include RunCommand
+  include YAMLConfig
+  include Logging
+
+  attr_accessor :files, :directories, :destination, :mirror
 
   def initialize(env = @@env, executor = Executor.new)
     @env = env
     @files = []
     @directories = []
     @executor = executor
+    @mirror = false
   end
 
   def execute()
@@ -15,13 +21,15 @@ class Robocopy
 
     copy = lambda { |type, collection|
       collection.each do |f|
-        command = case type
+        command = "#{@env.tools.robocopy} " + case type
           when 'file' then file_command(f, @destination)
           when 'directory' then directory_command(f, @destination)
           else raise "Unknown copy type"
         end
+        command += " /MIR" if @mirror 
+
         Log.message("Copying #{f} #{destination}; #{command}", :info)
-        @executor.run("#{@env.tools.robocopy} #{command}")
+        @executor.run(command)
       end
     }
 
