@@ -1,16 +1,14 @@
 $: << File.expand_path(File.dirname(__FILE__))
-$: << File.expand_path(File.join(File.dirname(__FILE__), "albacore"))
-$: << File.expand_path(File.join(File.dirname(__FILE__), "albacore", 'support'))
+$: << File.expand_path(File.join(File.dirname(__FILE__), "deployment"))
 $: << File.expand_path(File.join(File.dirname(__FILE__), "rake"))
-  
-=begin
-Dir.glob(File.join(File.expand_path(File.dirname(__FILE__)), 'albacore/*.rb')).reject{ |f|
-  f if runtime_is_ironruby && (f.include?("ssh") || f.include?("sftp"))
-}.each {|f| require f }
 
-Dir.glob(File.join(File.expand_path(File.dirname(__FILE__)), 'rake/support/*.rb')).each {|f| require f }
 
-Dir.glob(File.join(File.expand_path(File.dirname(__FILE__)), 'rake/*.rb')).reject{ |f|
-  f if runtime_is_ironruby && (f.include?("ssh") || f.include?("sftp"))
-}.each {|f| require f }
-=end
+require 'albacore'
+
+include_files = lambda { |p|
+  Dir.glob(File.join(File.expand_path(File.dirname(__FILE__)), p)).each {|f| require f }
+}
+
+include_files.call('deployment/*.rb')
+include_files.call('rake/*.rb')
+@@env = Env.new

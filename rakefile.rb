@@ -7,7 +7,7 @@ namespace :specs do
 
   desc "Run functional specs for Albacore"
   Spec::Rake::SpecTask.new :all do |t|
-    t.spec_files = FileList['spec/**/*_spec.rb']
+    t.spec_files = FileList['specs/*_spec.rb']
     t.spec_opts << @spec_opts
   end
 end
