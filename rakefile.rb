@@ -40,6 +40,8 @@ namespace :jeweler do
       gs.add_development_dependency('rspec', '>= 1.2.8')
       gs.add_development_dependency('jeweler', '>= 1.2.1')
     end
+    Jeweler::GemcutterTasks.new
+    
   rescue LoadError
     puts "Jeweler, or one of its dependencies, is not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
   end    

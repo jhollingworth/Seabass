@@ -1,0 +1,25 @@
+h1. Albacore.Deployment
+
+A suite of Rake tasks for deploying .NET applications
+
+h1. Installation
+
+To install the gem you just need to run
+
+<pre>
+gem install albacore-deployment
+</pre>
+
+h1. Example
+
+<pre>
+require 'rubygems'
+require 'albacore/deployment'
+
+robocopy do |r|
+	r.files << "foo.txt"
+	r.files << "bar.txt"
+	r.directories << "c:/temp/source/baz"
+	r.destination = "c:/temp/destination"
+end
+</pre>
