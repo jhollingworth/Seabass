@@ -35,7 +35,8 @@ namespace :jeweler do
       gs.authors = ["James Hollingworth"]
       gs.has_rdoc = false
       gs.files.exclude("seabass.gemspec", ".gitignore")
-      gs.add_dependency('rake', '>= 0.1.5')
+      gs.add_dependency('rake', '>= 0.8.7')
+      gs.add_dependency('albacore', '>= 0.1.5')
       gs.add_development_dependency('rspec', '>= 1.2.8')
       gs.add_development_dependency('jeweler', '>= 1.2.1')
     end
