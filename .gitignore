@@ -1,4 +1,4 @@
 .idea
 pkg
-albacore-deployment.gemspec
+seabass.gemspec
 *.gem

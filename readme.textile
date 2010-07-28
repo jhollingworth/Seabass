@@ -1,20 +1,20 @@
-h1. Albacore.Deployment
+h1. Seabass
 
-A suite of Rake tasks for deploying .NET applications
+A suite of Seabass-safe Rake tasks for deploying .NET applications
 
 h1. Installation
 
 To install the gem you just need to run
 
 <pre>
-gem install albacore-deployment
+gem install seabass
 </pre>
 
 h1. Example
 
 <pre>
 require 'rubygems'
-require 'albacore/deployment'
+require 'seabass'
 
 robocopy do |r|
 	r.files << "foo.txt"
