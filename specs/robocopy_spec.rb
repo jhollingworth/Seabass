@@ -1,5 +1,5 @@
 require "spec"
-require File.dirname(__FILE__) + '/../lib/albacore/deployment'
+require File.dirname(__FILE__) + '/../lib/seabass'
 require File.dirname(__FILE__) + '/mocks/mock_robocopy'
 
 describe "When I do not specify a destination" do
