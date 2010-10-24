@@ -1,5 +1,3 @@
-require 'lib/seabass'
-
 namespace :specs do
   require 'spec/rake/spectask'
 
@@ -9,17 +7,6 @@ namespace :specs do
   Spec::Rake::SpecTask.new :all do |t|
     t.spec_files = FileList['specs/*_spec.rb']
     t.spec_opts << @spec_opts
-  end
-end
-
-namespace :example do
-  require 'rubygems'
-
-  robocopy do |r|
-      r.files << "foo.txt"
-      r.files << "bar.txt"
-      r.directories << "baz"
-      r.destination = "foo"
   end
 end
 
@@ -39,6 +26,7 @@ namespace :jeweler do
       gs.add_dependency('albacore', '>= 0.1.5')
       gs.add_development_dependency('rspec', '>= 1.2.8')
       gs.add_development_dependency('jeweler', '>= 1.2.1')
+      gs.add_development_dependency('mocha', '>= 0.9.8')
     end
     Jeweler::GemcutterTasks.new
   rescue LoadError
