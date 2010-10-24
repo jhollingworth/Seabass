@@ -1,3 +1,3 @@
-create_task :robocopy, Proc.new { FeatureConsumer.new } do |r|
+create_task :consume_package, Proc.new { FeatureConsumer.new } do |r|
   r.execute
 end
