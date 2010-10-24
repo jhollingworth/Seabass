@@ -10,16 +10,7 @@ To install the gem you just need to run
 gem install seabass
 </pre>
 
-h1. Example
+h1. Documentation
 
-<pre>
-require 'rubygems'
-require 'seabass'
-
-robocopy do |r|
-	r.files << "foo.txt"
-	r.files << "bar.txt"
-	r.directories << "c:/temp/source/baz"
-	r.destination = "c:/temp/destination"
-end
-</pre>
+* [[Robocopy]]
+* [[Features]]
