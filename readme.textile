@@ -12,5 +12,5 @@ gem install seabass
 
 h1. Documentation
 
-* [[Robocopy|http://github.com/jhollingworth/Seabass/wiki/Robocopy]]
-* [[Features|http://github.com/jhollingworth/Seabass/wiki/Features]]
+* <a href="http://github.com/jhollingworth/Seabass/wiki/Robocopy">Robocopy</a>
+* <a href="http://github.com/jhollingworth/Seabass/wiki/Features">Features</a>
