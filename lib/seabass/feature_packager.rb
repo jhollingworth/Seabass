@@ -16,13 +16,15 @@ class FeaturePackager
     raise "Please specify the directory where the features to package exist" if @source_dir.nil?
     raise "Please specify the directory packages should be placed into" if @package_dir.nil?
 
-    Dir[@source_dir + '/**/.feature'].each do |feature|
+    Dir[@source_dir + '/**/feature.yml'].each do |feature|
       next if File.basename(File.dirname(feature)).downcase == File.basename(@source_dir).downcase
 
       feature_config = YAML.load(File.read(feature))
+	  
+      raise "The feature config does not contain the feature name" if !feature_config.has_key?('name')
       raise "The feature config does not contain the destination name" if !feature_config.has_key?('destination_name')
-
-      destination = File.expand_path(File.join(@package_dir, feature_config['destination_name']))
+	  
+      destination = File.expand_path(File.join(@package_dir, feature_config['name'], feature_config['destination_name']))
       FileUtils.mkdir_p(destination)
 
       feature_root = File.expand_path(File.dirname(feature) + '/../')

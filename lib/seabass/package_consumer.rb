@@ -1,10 +1,6 @@
 require 'ftools'
 
-class FeatureConsumer
-  include RunCommand
-  include YAMLConfig
-  include Logging
-
+class PackageConsumer
   attr_accessor :package_dir, :consumer_dir, :application_name
 
   def execute()
@@ -12,7 +8,11 @@ class FeatureConsumer
     raise "The directory packages should be copied to has not been specified" if @consumer_dir.nil?
     raise "The name of the application has not been specified" if @application_name.nil?
 
-    Dir[@package_dir + "/**/#{@application_name}/**/**"].each do |resource|
+	files = Dir[@package_dir +  "**/#{@application_name}/**/**"]
+	
+	puts "Found #{files.length} files"
+	
+    Dir[@package_dir +  "**/#{@application_name}/**/**"].each do |resource|
       raise "Could not find the app name in the resource type" if resource.match(/.*\/#{@application_name}\/(.*)/).nil?
       
       destination = File.expand_path(File.join(@consumer_dir, $1))
