@@ -1,6 +1,6 @@
 h1. Seabass
 
-A suite of Seabass-safe Rake tasks for deploying .NET applications
+A suite of Seabass-safe Rake tasks for managing .NET applications
 
 h1. Installation
 
