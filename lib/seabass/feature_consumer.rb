@@ -1,6 +1,10 @@
 require 'ftools'
 
 class FeatureConsumer
+  include RunCommand
+  include YAMLConfig
+  include Logging
+
   attr_accessor :package_dir, :consumer_dir, :application_name
 
   def execute()

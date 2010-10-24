@@ -2,6 +2,9 @@ require 'ftools'
 require 'yaml'
 
 class FeaturePackager
+  include RunCommand
+  include YAMLConfig
+  include Logging
 
   attr_accessor :source_dir, :package_dir, :valid_file_types
 
